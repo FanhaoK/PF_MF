@@ -15,6 +15,16 @@ p<-DimPlot(MF,group.by = "group",pt.size = 1)
 ggsave("UMAP.tiff", plot = p, bg = "transparent", width =6.2, height =5, dpi = 600, device = "tiff", compression = "none",limitsize = FALSE)
 markers<-FindAllMarkers(object = MF,test.use = "wilcox",only.pos = T,logfc.threshold = 0.25)
 write.csv(markers,"marker.csv")
+#gene profiles
+p<-DotPlot(MF, features = list$V1, cols = c("lightgrey", "blue"), 
+           dot.scale =20)+
+  scale_size_continuous(trans = "sqrt", range = c(0.1, 10)) + 
+  scale_color_viridis(option = "E", direction = 1) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1,size = 20)) +
+  theme(axis.text.y = element_text(size = 20))+
+  theme(legend.title =element_text(size = 20))
+
+ggsave("dot.tiff", plot = p, bg = "transparent", width =14.5, height =6, dpi = 600, device = "tiff", compression = "none",limitsize = FALSE)
 
 #Cells were annotated based on the expression of canonical marker genes and the results of GO and KEGG pathway enrichment analyses.
 
