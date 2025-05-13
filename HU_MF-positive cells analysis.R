@@ -32,7 +32,7 @@ MF$celltype<-plyr::mapvalues(MF$RNA_snn_res.0.2,from = 0:4, to=c("Wnt-responsive
                                                                  "Inflammatory fibroblasts",
                                                                  "Wnt-responsive fibroblasts",
                                                                  "TGFβ/BMP-responsive fibroblasts",
-                                                                 "Pathological fibroblasts"))#待修改
+                                                                 "Pathological fibroblasts"))
 new.cluster.ids <-c("Wnt-responsive fibroblasts",
                     "Inflammatory fibroblasts",
                     "Wnt-responsive fibroblasts",
@@ -70,7 +70,6 @@ for (i in 1:nrow(ratio)) {
     ratio1$Freq[i] <- ratio$Freq[i] / sum(ratio$Freq[ratio$Var2 == "IPF"])
   }
   
-}
 }
 
 colors<- c("#DC0000FF","#4DBBD5FF","#00A087FF","#3C5488FF")
