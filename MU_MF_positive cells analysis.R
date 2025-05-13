@@ -106,7 +106,7 @@ for (i in 1:nrow(MF@meta.data)){
   print(label_percent()(i/nrow(MF@meta.data)))
   
 }
-#绘图展示
+#Plot
 p1<-DimPlot(MF,reduction = "umap",cells = WhichCells(MF, expression = stage=="Normal state"),pt.size = 0.1)+
   scale_color_manual(values = rep("#2166AC", length(levels(MF))))+
   annotation_custom(
@@ -197,7 +197,7 @@ ggsave("a.tiff", plot = p, bg = "transparent", width = 7.35, height =5, dpi = 60
 
 #Cell proportion analysis
 ratio<-table(MF$cellType,MF$stage)
-ratio<-as.data.frame(ratio)#手动计算比例
+ratio<-as.data.frame(ratio)#Calculate proportions
 write.csv(ratio,"ratio.csv")
 ratio1<-read.csv("ratio.csv",header = T)
 
